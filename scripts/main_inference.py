@@ -27,7 +27,9 @@ color = [
     (255, 0, 0),
 ]
 
-testing_set = "data/LaSOT/testing_set.txt"
+data_root = "/home/mka267/project/data/lasot"
+
+testing_set = osp.join(data_root, "testing_set.txt")
 with open(testing_set, 'r') as f:
     test_videos = f.readlines()
 
@@ -40,7 +42,7 @@ if model_name == "base_plus":
 else:
     model_cfg = f"configs/samurai/sam2.1_hiera_{model_name[0]}.yaml"
 
-video_folder= "data/LaSOT"
+video_folder = data_root
 pred_folder = f"results/{exp_name}/{exp_name}_{model_name}"
 
 save_to_video = True
