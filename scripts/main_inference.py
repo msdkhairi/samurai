@@ -34,7 +34,7 @@ with open(testing_set, 'r') as f:
     test_videos = f.readlines()
 
 exp_name = "samurai"
-model_name = "base_plus"
+model_name = "tiny"  # tiny, small, base_plus, "large"
 
 checkpoint = f"sam2/checkpoints/sam2.1_hiera_{model_name}.pt"
 if model_name == "base_plus":
@@ -45,7 +45,7 @@ else:
 video_folder = data_root
 pred_folder = f"results/{exp_name}/{exp_name}_{model_name}"
 
-save_to_video = True
+save_to_video = False
 if save_to_video:
     vis_folder = f"visualization/{exp_name}/{model_name}"
     os.makedirs(vis_folder, exist_ok=True)
