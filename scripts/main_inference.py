@@ -27,7 +27,7 @@ color = [
     (255, 0, 0),
 ]
 
-data_root = "/home/mka267/project/data/lasot"
+data_root = os.getenv("LOCAL_DATA_DIR", "/home/mka267/project/data/lasot")
 
 testing_set = osp.join(data_root, "testing_set.txt")
 with open(testing_set, 'r') as f:
