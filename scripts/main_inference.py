@@ -62,7 +62,7 @@ for vid, video in enumerate(test_videos):
     video_basename = video.strip()
 
     if osp.exists(osp.join(pred_folder, f'{video_basename}.txt')) and not overwrite_pred:
-        print(f"Skip existing video: {video_basename}")
+        print(f"Skip existing video results: {video_basename}")
         continue
 
     frame_folder = osp.join(video_folder, cat_name, video.strip(), "img")
