@@ -52,12 +52,19 @@ if save_to_video:
     vis_mask = {}
     vis_bbox = {}
 
+overwrite_pred = False
+
 test_videos = sorted(test_videos)
 for vid, video in enumerate(test_videos):
 
     cat_name = video.split('-')[0]
     cid_name = video.split('-')[1]
     video_basename = video.strip()
+
+    if osp.exists(osp.join(pred_folder, f'{video_basename}.txt')) and not overwrite_pred:
+        print(f"Skip existing video: {video_basename}")
+        continue
+
     frame_folder = osp.join(video_folder, cat_name, video.strip(), "img")
 
     num_frames = len(os.listdir(osp.join(video_folder, cat_name, video.strip(), "img")))
